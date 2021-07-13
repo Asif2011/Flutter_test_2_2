@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2_2_test/screens/home_screen.dart';
+import 'package:flutter_2_2_test/screens/homeScreen.dart';
+import 'screens/loginScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,10 +25,16 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.green,
 
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      initialRoute: '/login',
+      routes:{
+        '/':(context){return HomeScreen();},
+        '/login':(context){return loginScreen();},
+        '/home': (context){return HomeScreen();},
+      },
     );
   }
 }
