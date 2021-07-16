@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes:{
         '/':(context){return HomeScreen();},
-        '/login':(context){return loginScreen();},
+        '/login':(context){return LoginScreen();},
         '/home': (context){return HomeScreen();},
       },
     );
