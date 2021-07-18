@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2_2_test/utils/routes.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -41,7 +42,7 @@ class LoginScreen extends StatelessWidget {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {Navigator.pushNamed(context, "/home");},
+              onPressed: () {Navigator.pushNamed(context, MyRoutes.homeRoute);},
               style: ButtonStyle(
                 minimumSize: MaterialStateProperty.all(Size(80,40)),
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
