@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2_2_test/utils/routes.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController? controllerUsername = TextEditingController();
+
+  final TextEditingController? controllerPassword = TextEditingController();
+  bool touched = false;
+
+  void pressed() {
+    print(
+        "are you sure for username value is '${controllerUsername!.text}' and password is '${controllerPassword!.text}'");
+        this.touched = !this.touched;
+        
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,11 +36,15 @@ class LoginScreen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              "Welcome",
-              style: TextStyle(fontSize: 22) ,
+              "Welcome ${controllerUsername!.text}",
+              style: TextStyle(fontSize: 22),
               // style:GoogleFonts.arimo(),
             ),
             TextField(
+              onChanged: (String value) {
+                setState(() {});
+              },
+              controller: controllerUsername,
               maxLines: 1,
               decoration: InputDecoration(
                 hintText: "Enter Username",
@@ -31,6 +52,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             TextField(
+              controller: controllerPassword,
               obscureText: true,
               maxLines: 1,
               decoration: InputDecoration(
@@ -41,22 +63,53 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              onPressed: () {Navigator.pushNamed(context, MyRoutes.homeRoute);},
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all(Size(80,40)),
-                backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                  (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.pressed)) {
-                      return Colors.white10.withOpacity(0.5);
-                    } else {
-                      return Colors.purple.withOpacity(0.5);
-                    }
-                  }, // Use the component's default.
+            InkWell(
+              onTap: ()async{
+                pressed();
+                setState(() {
+                  
+                });
+                await Future.delayed(Duration(seconds:1));
+                Navigator.pushNamed(context, MyRoutes.homeRoute);
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds:1),
+                alignment: Alignment.center,
+                height: 40,
+                width: touched?40:80,
+                // color: Theme.of(context).colorScheme.primaryVariant,
+                child: Text(
+                  "login",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  // shape: touched?BoxShape.circle:BoxShape.rectangle,
+                  borderRadius: touched?BorderRadius.circular(30):BorderRadius.circular(6),
                 ),
               ),
-              child: Text("Login"),
-            ),
+            )
+            // ElevatedButton(
+            //   onPressed: (){
+            //     // pressed();
+            //     // Navigator.pushNamed(context, MyRoutes.homeRoute);
+            //   },
+            //   style: ButtonStyle(
+            //     minimumSize: MaterialStateProperty.all(Size(80,40)),
+            //     backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            //       (Set<MaterialState> states) {
+            //         if (states.contains(MaterialState.pressed)) {
+            //           return Colors.white10.withOpacity(0.5);
+            //         } else {
+            //           return Colors.purple.withOpacity(0.5);
+            //         }
+            //       }, // Use the component's default.
+            //     ),
+            //   ),
+            //   child: Text("Login"),
+            // ),
           ]),
         ),
       ),
