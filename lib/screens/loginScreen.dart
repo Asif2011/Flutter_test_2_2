@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 40,
                 width: touched?40:80,
                 // color: Theme.of(context).colorScheme.primaryVariant,
-                child: Text(
+                child: touched?Icon(Icons.done):Text(
                   "login",
                   style: TextStyle(
                     color: Colors.white,
@@ -88,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.purple,
                   // shape: touched?BoxShape.circle:BoxShape.rectangle,
                   borderRadius: touched?BorderRadius.circular(30):BorderRadius.circular(6),
+
                 ),
               ),
             )
