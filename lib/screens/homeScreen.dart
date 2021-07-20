@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2_2_test/widgets/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: MyDrawer(),
       
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
