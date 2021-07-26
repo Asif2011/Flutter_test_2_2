@@ -10,8 +10,11 @@ class MyDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
               child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
                 currentAccountPictureSize: Size.fromRadius(25),
-                margin: EdgeInsets.zero,
+                // margin: EdgeInsets.zero,
                 accountName: Text("Asif Raza"),
                 accountEmail: Text("asifrazadev2019@gmail.com"),
                 currentAccountPicture: CircleAvatar(

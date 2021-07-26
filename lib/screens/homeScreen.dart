@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(this.title2+"$_counter"),
+        title: Text("Catalog App"),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
