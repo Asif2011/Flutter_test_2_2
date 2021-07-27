@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2_2_test/screens/catalog_app.dart';
 import 'package:flutter_2_2_test/screens/homeScreen.dart';
 import 'package:flutter_2_2_test/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,11 +39,12 @@ class MyApp extends StatelessWidget {
 
       ),
       // home: HomeScreen(),
-      initialRoute:MyRoutes.homeRoute,
+      initialRoute:MyRoutes.catalogRoute,
       routes:{
         MyRoutes.homeRoute:(context){return HomeScreen();},
         MyRoutes.loginRoute:(context){return LoginScreen();},
         MyRoutes.homeRoute: (context){return HomeScreen();},
+        MyRoutes.catalogRoute:(context){return CatalogScreen();}
       },
     );
   }
