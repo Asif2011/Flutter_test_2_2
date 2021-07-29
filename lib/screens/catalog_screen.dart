@@ -1,9 +1,24 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_2_2_test/models/items.dart';
 import 'package:flutter_2_2_test/utils/routes.dart';
 import 'package:flutter_2_2_test/widgets/ItemWidget.dart';
 
-class CatalogScreen extends StatelessWidget {
+class CatalogScreen extends StatefulWidget {
+
+  @override
+  _CatalogScreenState createState() => _CatalogScreenState();
+
+}
+
+class _CatalogScreenState extends State<CatalogScreen> {
+
+  @override
+  void initState() { 
+    super.initState();
+    loadData();
+  }
   @override
   Widget build(BuildContext context) {
     Item myItem = Item();
@@ -28,4 +43,10 @@ class CatalogScreen extends StatelessWidget {
       )
     );
   }
+}
+
+void loadData() async{
+ var productFile = await rootBundle.loadString("assets/files/products.json");//fetching the file
+  var productJson = jsonDecode(productFile);
+
 }

@@ -1,0 +1,55 @@
+{
+	"products":
+	[
+		{
+			"id":1,
+			"name": "Nokia 3310",
+			"desc": "A feature phone",
+			"price": 35,
+			"Color": "#40dfa0",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/nokia-3310-2017-1.jpg"
+		},
+		{
+			"id":2,
+			"name": "Samsung Galaxy A03 Core",
+			"desc": "Smart phone",
+			"price": 999,
+			"Color": "#cabfe9",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a01core-sm-a013.jpg"
+		},
+		{
+			"id":3,
+			"name": "Xiaomi Redmi Note 8 2021", 
+			"desc": "A Smart Phone",
+			"price": 10000,
+			"Color": "#008080",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note8-2021.jpg"
+		},
+		{
+			"id":4,
+			"name": "Google Pixel 5",
+			"desc": "A Smart Phone",
+			"price": 66540,
+			"Color": "#ffc2f5",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-5-5g.jpg"
+		},
+		{
+			"id":5,
+			"name": "Sony Xperia 1 III",
+			"desc": "A Smart Phone",
+			"price": 12999,
+			"Color": "#008000",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-1-iii.jpg"
+		},
+		{
+			"id":6,
+			"name": "Infinix Note 10 Pro",
+			"desc": "A Smart Phone",
+			"price": 13000,
+			"Color": "#b9faf8",
+			"image": "https://fdn2.gsmarena.com/vv/bigpic/infinix-note-10-pro-.jpg"
+		}
+
+	]
+
+}

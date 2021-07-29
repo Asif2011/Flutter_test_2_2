@@ -4,7 +4,7 @@ import 'package:flutter_2_2_test/models/items.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
-  ItemWidget(this.item);
+  ItemWidget(this.item):assert(item!=null);// how to attach check on null value, throw exception on null
 
   @override
   Widget build(BuildContext context) {

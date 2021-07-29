@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2_2_test/screens/catalog_app.dart';
+import 'package:flutter_2_2_test/screens/catalog_screen.dart';
 import 'package:flutter_2_2_test/screens/homeScreen.dart';
 import 'package:flutter_2_2_test/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
