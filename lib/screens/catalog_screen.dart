@@ -13,6 +13,7 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+  List<Item> dummyList = [];
 
   @override
   void initState() { 
@@ -21,8 +22,11 @@ class _CatalogScreenState extends State<CatalogScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    Item myItem = Item();
-    List<ItemWidget> dummyList = List.generate(3, (index) => ItemWidget(myItem));
+    // Item myItem = Item(); 
+    // List<ItemWidget> dummyList = List.generate(3, (index) => ItemWidget(myItem));
+    loadData();
+
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Welcome to Catalog app"),
@@ -36,17 +40,24 @@ class _CatalogScreenState extends State<CatalogScreen> {
           
         ],
       ),
-      body:Container(
-        child: ListView.builder(
-          itemCount: dummyList.length,
-          itemBuilder: (context, index) {return dummyList[index];} ),
+      body:Center(
+        child: Container(
+          child: dummyList.isNotEmpty? ListView.builder(
+            itemCount: dummyList.length,
+            itemBuilder: (context, index) {return ItemWidget(dummyList[index]);} ):
+            //Text("wait....")
+            CircularProgressIndicator(),
+        ),
       )
     );
   }
-}
-
-void loadData() async{
- var productFile = await rootBundle.loadString("assets/files/products.json");//fetching the file
+  void loadData() async{
+ String productFile = await rootBundle.loadString("assets/files/products.json");//fetching the file
   var productJson = jsonDecode(productFile);
+  var productData = productJson['products'];
+  this.dummyList  = List.from(productData).map((item) => Item.fromMap(item)).toList();
+  
+}
 
 }
+

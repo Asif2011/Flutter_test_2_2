@@ -10,7 +10,7 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Image.asset(item.image),
+        leading: Image.network(item.image),
         trailing: Text(item.price.toString()),
         title: Text(item.name),
         subtitle: Text(item.desc),
