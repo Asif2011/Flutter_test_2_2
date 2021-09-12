@@ -10,7 +10,23 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Image.network(item.image),
+        // leading: Image.network(item.image),
+        leading: Image.network(
+        item.image,
+        errorBuilder: (BuildContext context,Object exception, StackTrace? stackTrace){
+        return Image.asset('assets/images/image-not-found.png');},
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+          return CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? loadingProgress.cumulativeBytesLoaded /
+                      loadingProgress.expectedTotalBytes!: null,
+            );
+        },
+      ),
         trailing: Text(item.price.toString()),
         title: Text(item.name),
         subtitle: Text(item.desc),
